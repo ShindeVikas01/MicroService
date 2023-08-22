@@ -17,9 +17,5 @@ public class OrderEntity {
     private String odate;
     private String oitem;
     private int oamount;
-    @ManyToOne
-    @JoinColumn(name = "cid")
-    private CustomerEntity customer;
-
-
+    private int cid;
 }
