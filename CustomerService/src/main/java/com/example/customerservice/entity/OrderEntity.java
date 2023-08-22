@@ -19,7 +19,7 @@ public class OrderEntity {
     private int oamount;
     @ManyToOne
     @JoinColumn(name = "cid")
-    private CustomerEntity customerEntity;
+    private CustomerEntity customer;
 
 
 }
