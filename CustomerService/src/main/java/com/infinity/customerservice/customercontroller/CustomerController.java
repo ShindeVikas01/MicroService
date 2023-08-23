@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @RestController
-@RequestMapping("customer/api")
+@RequestMapping("/customer")
 public class CustomerController {
 
     @Autowired
@@ -31,7 +31,7 @@ public class CustomerController {
     @GetMapping("/getcustomerbyid/{cid}")
     public CustomerEntity getcustomerbyid(@PathVariable("cid")int cid){
         CustomerEntity customer=customerRepo.findById(cid).get();
-        List<OrderEntity> order=restTemplate.getForObject("http://orderservice/order/api/getorderbycid/"+cid,List.class);
+        List<OrderEntity> order=restTemplate.getForObject("http://orderservice/order/getorderbycid/"+cid,List.class);
         customer.setOrderList(order);
         return customer;
     }

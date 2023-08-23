@@ -1,0 +1,16 @@
+server:
+  port: 8099
+spring:
+  application:
+    name: apigetway
+  cloud:
+    gateway:
+      routes:
+        - id: customerservice
+          uri: lb://customerservice
+          predicates:
+            - Path=/customer/**
+        - id: orderservice
+          uri: lb://orderservice
+          predicates:
+            - Path=/order/**
